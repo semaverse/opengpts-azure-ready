@@ -33,6 +33,7 @@ def get_openai_llm(gpt_4: bool = False, azure: bool = False):
         )
     else:
         llm = AzureChatOpenAI(
+            http_client=http_client,
             temperature=0,
             deployment_name=os.environ["AZURE_OPENAI_DEPLOYMENT_NAME"],
             azure_endpoint=os.environ["AZURE_OPENAI_API_BASE"],
